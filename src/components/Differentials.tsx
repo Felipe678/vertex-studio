@@ -43,7 +43,7 @@ export default function Differentials() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-20"
         >
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
@@ -60,7 +60,7 @@ export default function Differentials() {
               key={diff.title}
               initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
               className="group flex items-start gap-5 p-6 rounded-2xl hover:bg-galaxy-navy/50 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-electric-violet/20 to-stellar-blue/20 flex items-center justify-center shrink-0 group-hover:from-electric-violet/40 group-hover:to-stellar-blue/40 transition-all duration-300">

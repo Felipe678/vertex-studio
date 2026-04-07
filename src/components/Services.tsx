@@ -45,7 +45,7 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-20"
         >
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
@@ -66,7 +66,7 @@ export default function Services() {
               key={service.title}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               className="group relative"
             >
               <div className="gradient-border h-full">

@@ -37,15 +37,15 @@ export default function HowItWorks() {
   const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="como-funciona" className="relative py-32 overflow-hidden">
+    <section id="como-funciona" className="relative py-32">
       <div className="absolute inset-0 grid-pattern" />
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-stellar-blue/8 rounded-full blur-[150px] -translate-y-1/2" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-20"
         >
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
@@ -57,44 +57,73 @@ export default function HowItWorks() {
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Connecting line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-electric-violet/50 via-stellar-blue/50 to-transparent hidden md:block" />
+          {/* Connecting line - desktop (center) */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-electric-violet/50 via-stellar-blue/50 to-transparent hidden md:block" />
 
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.2 }}
-              className={`relative flex items-center gap-8 mb-16 last:mb-0 ${
-                i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}
-            >
-              {/* Content */}
-              <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                <div className="glass rounded-2xl p-8 hover:bg-galaxy-navy/60 transition-all duration-300 group">
-                  <div className="flex items-center gap-4 mb-4 md:hidden">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-electric-violet to-stellar-blue flex items-center justify-center">
-                      <step.icon className="w-6 h-6 text-white" />
+          {steps.map((step, i) => {
+            const isEven = i % 2 === 0
+
+            return (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, x: isEven ? -40 : 40, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, x: 0, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: i * 0.15, ease: 'easeOut' }}
+                className="mb-8 last:mb-0"
+              >
+                {/* Mobile: zigzag layout */}
+                <div className={`flex md:hidden ${isEven ? 'justify-start' : 'justify-end'}`}>
+                  <div className={`w-[85%] flex items-start gap-4 ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
+                    {/* Icon */}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : {}}
+                      transition={{ duration: 0.3, delay: i * 0.15 + 0.2, type: 'spring', stiffness: 200 }}
+                      className="w-14 h-14 rounded-2xl bg-gradient-to-br from-electric-violet to-stellar-blue flex items-center justify-center shrink-0 shadow-[0_0_25px_rgba(139,92,246,0.4)]"
+                    >
+                      <step.icon className="w-7 h-7 text-white" />
+                    </motion.div>
+
+                    {/* Card */}
+                    <div className="flex-1 glass rounded-2xl p-5 relative">
+                      {/* Arrow pointing to icon */}
+                      <div
+                        className={`absolute top-5 w-3 h-3 rotate-45 ${
+                          isEven
+                            ? '-left-1.5 bg-galaxy-navy/60 border-l border-b border-electric-violet/15'
+                            : '-right-1.5 bg-galaxy-navy/60 border-r border-t border-electric-violet/15'
+                        }`}
+                      />
+                      <span className="font-mono text-electric-violet text-xs tracking-wider">{step.number}</span>
+                      <h3 className="font-display font-bold text-lg text-starlight mt-1 mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-white-dim text-sm leading-relaxed">{step.description}</p>
                     </div>
-                    <span className="font-mono text-electric-violet text-sm">{step.number}</span>
                   </div>
-                  <h3 className="font-display font-bold text-xl text-starlight mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-white-dim text-sm leading-relaxed">{step.description}</p>
                 </div>
-              </div>
 
-              {/* Center icon (desktop) */}
-              <div className="hidden md:flex w-16 h-16 rounded-2xl bg-gradient-to-br from-electric-violet to-stellar-blue items-center justify-center shrink-0 z-10 shadow-[0_0_30px_rgba(139,92,246,0.3)]">
-                <step.icon className="w-7 h-7 text-white" />
-              </div>
+                {/* Desktop: alternating timeline */}
+                <div className={`hidden md:flex items-center gap-8 ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className={`flex-1 ${isEven ? 'text-right' : 'text-left'}`}>
+                    <div className="glass rounded-2xl p-8">
+                      <span className="font-mono text-electric-violet text-xs tracking-wider">{step.number}</span>
+                      <h3 className="font-display font-bold text-xl text-starlight mt-1 mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-white-dim text-sm leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
 
-              {/* Spacer for alternating layout */}
-              <div className="hidden md:block flex-1" />
-            </motion.div>
-          ))}
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-electric-violet to-stellar-blue flex items-center justify-center shrink-0 z-10 shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+                    <step.icon className="w-7 h-7 text-white" />
+                  </div>
+
+                  <div className="flex-1" />
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

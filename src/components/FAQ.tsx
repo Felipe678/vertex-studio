@@ -91,7 +91,7 @@ export default function FAQ() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
@@ -105,7 +105,7 @@ export default function FAQ() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           className="glass rounded-2xl p-8"
         >
           {faqs.map((faq) => (

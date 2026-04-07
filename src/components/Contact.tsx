@@ -100,7 +100,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
@@ -119,7 +119,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-5">
@@ -327,7 +327,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
             className="lg:col-span-2 flex flex-col gap-6"
           >
             <div className="glass rounded-2xl p-8 flex-1">
