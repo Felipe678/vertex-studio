@@ -57,7 +57,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-deep-nebula/20 text-center">
           <p className="text-white-dim/50 text-xs font-mono">
-            &copy; {new Date().getFullYear()} Vertex Studio Lab. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Vertex Studio. Todos os direitos reservados.
           </p>
         </div>
       </div>

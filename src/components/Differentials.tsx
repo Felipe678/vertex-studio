@@ -50,7 +50,7 @@ export default function Differentials() {
             Diferenciais
           </span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl mt-4">
-            Por que a <span className="gradient-text">Vertex Studio Lab</span>?
+            Por que a <span className="gradient-text">Vertex Studio</span>?
           </h2>
         </motion.div>
 
