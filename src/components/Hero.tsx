@@ -34,7 +34,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 text-balance"
+          className="font-display font-extrabold text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 text-balance"
         >
           Transformamos <span className="gradient-text">geometria</span> em realidade.
         </motion.h1>
@@ -74,14 +74,31 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+      {/* Scroll indicator - desktop: mouse wheel */}
+      <div className="absolute bottom-11 left-1/2 -translate-x-1/2 z-10 hidden sm:block">
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="w-6 h-10 rounded-full border-2 border-white-dim/30 flex items-start justify-center p-1.5"
         >
           <div className="w-1.5 h-1.5 rounded-full bg-electric-violet" />
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator - mobile: finger swipe up */}
+      <div className="absolute bottom-11 left-1/2 -translate-x-1/2 z-10 sm:hidden">
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center"
+        >
+          <svg width="32" height="48" viewBox="0 0 32 48" fill="none">
+            {/* Seta para cima */}
+            <path d="M16 4 L10 12 L22 12 Z" fill="rgba(139,92,246,0.6)" />
+            {/* Dedo indicador */}
+            <path d="M16 18 C16 18 16 14 16 14 C16 12.3 17.3 11 19 11 C20.7 11 22 12.3 22 14 L22 26 C22 26 22 27 22 28 C22 32.4 18.4 36 14 36 C9.6 36 8 32.4 8 28 L8 24 C8 22.3 9.3 21 11 21 C12.7 21 14 22.3 14 24 L14 20 C14 18.3 15.3 17 16 17 Z"
+              stroke="rgba(168,164,200,0.5)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </motion.div>
       </div>
     </section>
