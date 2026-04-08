@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { track } from '@vercel/analytics'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, MessageCircle, Mail, Upload, X } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
@@ -82,6 +83,13 @@ export default function Contact() {
       `*Descrição:* ${descricao}`,
       arquivosList,
     ].join('\n')
+
+    track('formulario_enviado', {
+      tipo,
+      tamanho: tamanhoFinal,
+      tem_arquivos: arquivos.length > 0,
+      qtd_arquivos: arquivos.length,
+    })
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
     window.open(url, '_blank')
