@@ -37,9 +37,9 @@ export default function Navbar() {
           <img
             src={logoImg}
             alt="Vertex Studio"
-            className="h-10 w-auto group-hover:scale-110 transition-transform duration-200"
+            className="h-7 sm:h-10 w-auto group-hover:scale-110 transition-transform duration-200"
           />
-          <div className="font-display font-extrabold text-lg tracking-wide">
+          <div className="font-display font-extrabold text-sm sm:text-lg tracking-wide">
             <span className="text-starlight">VERTEX</span>{' '}
             <span className="gradient-text">STUDIO</span>
           </div>
