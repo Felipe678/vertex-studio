@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -13,7 +14,7 @@ import Products from './pages/Products'
 
 function LandingPage() {
   return (
-    <div className="min-h-screen bg-void-black">
+    <div className="min-h-screen bg-void-black overflow-x-hidden">
       <Navbar />
       <Hero />
       <Services />
@@ -28,12 +29,23 @@ function LandingPage() {
   )
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
 function App() {
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/produtos" element={<Products />} />
     </Routes>
+    </>
   )
 }
 

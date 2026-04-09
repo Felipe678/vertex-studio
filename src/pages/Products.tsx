@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 
 export default function Products() {
   return (
-    <div className="min-h-screen bg-void-black">
+    <div className="min-h-screen bg-void-black overflow-x-hidden">
       <Navbar />
 
       <section className="relative pt-28 sm:pt-32 pb-20 px-4 sm:px-6">
