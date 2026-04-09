@@ -32,6 +32,12 @@
     background-color: var(--color-void-black);
     color: var(--color-starlight);
     overflow-x: hidden;
+    min-width: 280px;
+  }
+
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
   }
 
   ::selection {

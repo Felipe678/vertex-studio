@@ -39,7 +39,7 @@ export default function Differentials() {
       {/* Glow accent */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-cosmic-purple/10 rounded-full blur-[150px] -translate-y-1/2" />
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
+      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

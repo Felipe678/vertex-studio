@@ -31,7 +31,7 @@ export default function Navbar() {
         padding: scrolled ? '12px 0' : '20px 0',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
           <img
@@ -77,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden mt-2 mx-4 rounded-2xl bg-void-black/95 backdrop-blur-md border border-electric-violet/15 overflow-hidden">
+        <div className="md:hidden mt-2 mx-3 sm:mx-4 rounded-2xl bg-void-black/95 backdrop-blur-md border border-electric-violet/15 overflow-hidden">
           <div className="flex flex-col p-6 gap-4">
             {navLinks.map((link) => (
               <a
