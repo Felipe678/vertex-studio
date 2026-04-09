@@ -29,7 +29,7 @@ export default function Materials() {
   const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="materiais" className="relative py-32 overflow-hidden">
+    <section id="materiais" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-void-black via-galaxy-navy/20 to-void-black" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
@@ -42,7 +42,7 @@ export default function Materials() {
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
             Materiais
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl mt-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl mt-4">
             Materiais <span className="gradient-text">disponíveis</span>
           </h2>
           <p className="text-white-dim mt-4 max-w-xl mx-auto text-lg">

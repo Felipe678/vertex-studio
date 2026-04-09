@@ -34,7 +34,7 @@ export default function Differentials() {
   const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 grid-pattern" />
       {/* Glow accent */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-cosmic-purple/10 rounded-full blur-[150px] -translate-y-1/2" />
@@ -49,7 +49,7 @@ export default function Differentials() {
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
             Diferenciais
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl mt-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl mt-4">
             Por que a <span className="gradient-text">Vertex Studio</span>?
           </h2>
         </motion.div>

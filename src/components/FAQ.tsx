@@ -84,7 +84,7 @@ export default function FAQ() {
   const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="faq" className="relative py-32 overflow-hidden">
+    <section id="faq" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-void-black via-galaxy-navy/20 to-void-black" />
 
       <div ref={ref} className="relative z-10 max-w-3xl mx-auto px-6">
@@ -97,7 +97,7 @@ export default function FAQ() {
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
             FAQ
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl mt-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl mt-4">
             Perguntas <span className="gradient-text">frequentes</span>
           </h2>
         </motion.div>

@@ -37,7 +37,7 @@ export default function HowItWorks() {
   const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="como-funciona" className="relative py-32">
+    <section id="como-funciona" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute inset-0 grid-pattern" />
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-stellar-blue/8 rounded-full blur-[150px] -translate-y-1/2" />
 
@@ -51,7 +51,7 @@ export default function HowItWorks() {
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
             Processo
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl mt-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl mt-4">
             Do pedido à <span className="gradient-text">entrega</span>
           </h2>
         </motion.div>

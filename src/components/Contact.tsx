@@ -99,7 +99,7 @@ export default function Contact() {
     'w-full px-4 py-3 rounded-xl bg-void-black/60 border border-deep-nebula/50 text-starlight placeholder-white-dim/50 focus:outline-none focus:border-electric-violet/60 focus:shadow-[0_0_15px_rgba(139,92,246,0.15)] transition-all duration-300 text-sm'
 
   return (
-    <section id="contato" className="relative py-32 overflow-hidden">
+    <section id="contato" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <Particles count={15} />
       <div className="absolute inset-0 grid-pattern" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric-violet/8 rounded-full blur-[150px]" />
@@ -114,7 +114,7 @@ export default function Contact() {
           <span className="font-mono text-electric-violet text-sm tracking-widest uppercase">
             Contato
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl mt-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl mt-4">
             Sua ideia <span className="gradient-text">merece existir.</span>
           </h2>
           <p className="text-white-dim mt-4 max-w-xl mx-auto text-lg">
