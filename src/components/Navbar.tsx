@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 import logoImg from '../assets/vertex_upscaled.png'
 
 const navLinks = [
   { label: 'Início', href: '#hero' },
   { label: 'Serviços', href: '#servicos' },
+  { label: 'Loja', href: '/produtos', isRoute: true },
   { label: 'Materiais', href: '#materiais' },
   { label: 'Como Funciona', href: '#como-funciona' },
   { label: 'FAQ', href: '#faq' },
@@ -14,6 +16,8 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const location = useLocation()
+  const isLanding = location.pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -33,7 +37,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group">
           <img
             src={logoImg}
             alt="Vertex Studio"
@@ -43,26 +47,55 @@ export default function Navbar() {
             <span className="text-starlight">VERTEX</span>{' '}
             <span className="gradient-text">STUDIO</span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
+          {navLinks.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-white-dim text-sm font-medium hover:text-starlight transition-colors duration-200 relative group"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-electric-violet to-stellar-blue group-hover:w-full transition-all duration-200" />
+              </Link>
+            ) : isLanding ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-white-dim text-sm font-medium hover:text-starlight transition-colors duration-200 relative group"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-electric-violet to-stellar-blue group-hover:w-full transition-all duration-200" />
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={`/${link.href}`}
+                className="text-white-dim text-sm font-medium hover:text-starlight transition-colors duration-200 relative group"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-electric-violet to-stellar-blue group-hover:w-full transition-all duration-200" />
+              </Link>
+            )
+          )}
+          {isLanding ? (
             <a
-              key={link.href}
-              href={link.href}
-              className="text-white-dim text-sm font-medium hover:text-starlight transition-colors duration-200 relative group"
+              href="#contato"
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-electric-violet to-stellar-blue text-white text-sm font-semibold hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] transition-all duration-200 hover:scale-105"
             >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-electric-violet to-stellar-blue group-hover:w-full transition-all duration-200" />
+              Orçamento
             </a>
-          ))}
-          <a
-            href="#contato"
-            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-electric-violet to-stellar-blue text-white text-sm font-semibold hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] transition-all duration-200 hover:scale-105"
-          >
-            Orçamento
-          </a>
+          ) : (
+            <Link
+              to="/#contato"
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-electric-violet to-stellar-blue text-white text-sm font-semibold hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] transition-all duration-200 hover:scale-105"
+            >
+              Orçamento
+            </Link>
+          )}
         </div>
 
         {/* Mobile toggle */}
@@ -79,23 +112,53 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden mt-2 mx-3 sm:mx-4 rounded-2xl bg-void-black/95 backdrop-blur-md border border-electric-violet/15 overflow-hidden">
           <div className="flex flex-col p-6 gap-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white-dim hover:text-starlight transition-colors duration-200 text-lg"
+                >
+                  {link.label}
+                </Link>
+              ) : isLanding ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white-dim hover:text-starlight transition-colors duration-200 text-lg"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={`/${link.href}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white-dim hover:text-starlight transition-colors duration-200 text-lg"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+            {isLanding ? (
               <a
-                key={link.href}
-                href={link.href}
+                href="#contato"
                 onClick={() => setMobileOpen(false)}
-                className="text-white-dim hover:text-starlight transition-colors duration-200 text-lg"
+                className="mt-2 px-5 py-3 rounded-full bg-gradient-to-r from-electric-violet to-stellar-blue text-white text-center font-semibold"
               >
-                {link.label}
+                Solicite seu orçamento
               </a>
-            ))}
-            <a
-              href="#contato"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 px-5 py-3 rounded-full bg-gradient-to-r from-electric-violet to-stellar-blue text-white text-center font-semibold"
-            >
-              Solicite seu orçamento
-            </a>
+            ) : (
+              <Link
+                to="/#contato"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 px-5 py-3 rounded-full bg-gradient-to-r from-electric-violet to-stellar-blue text-white text-center font-semibold"
+              >
+                Solicite seu orçamento
+              </Link>
+            )}
           </div>
         </div>
       )}
