@@ -46,7 +46,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -67,7 +67,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-starlight p-2"
+          className="lg:hidden text-starlight p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
         >
@@ -77,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden mt-2 mx-3 sm:mx-4 rounded-2xl bg-void-black/95 backdrop-blur-md border border-electric-violet/15 overflow-hidden">
+        <div className="lg:hidden mt-2 mx-3 sm:mx-4 rounded-2xl bg-void-black/95 backdrop-blur-md border border-electric-violet/15 overflow-hidden">
           <div className="flex flex-col p-6 gap-4">
             {navLinks.map((link) => (
               <a
