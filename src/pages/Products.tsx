@@ -63,12 +63,9 @@ export default function Products() {
 
                   {/* Product Info */}
                   <div className="p-5 sm:p-6 flex flex-col flex-1">
-                    <h3 className="font-display font-bold text-lg sm:text-xl text-starlight mb-2">
+                    <h3 className="font-display font-bold text-lg sm:text-xl text-starlight mb-5">
                       {product.name}
                     </h3>
-                    <p className="text-electric-violet font-bold text-xl sm:text-2xl mb-5 font-mono">
-                      {product.price}
-                    </p>
 
                     <a
                       href={product.mercadoLivreUrl}

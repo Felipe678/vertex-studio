@@ -70,12 +70,9 @@ export default function StoreCTA() {
 
             {/* Product Info */}
             <div className="p-6 sm:p-8 text-center">
-              <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-starlight mb-3 group-hover:text-white transition-colors">
+              <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-starlight group-hover:text-white transition-colors">
                 {product.name}
               </h3>
-              <p className="text-electric-violet font-bold text-3xl sm:text-4xl font-mono">
-                {product.price}
-              </p>
             </div>
           </div>
         </motion.a>
